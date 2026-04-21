@@ -1,9 +1,9 @@
 :root {
     --primary-color: #ff4757;
     --secondary-color: #2f3542;
-    --bg-light: #f1f2f6;
+    --bg-light: #000000;
     --card-bg: #ffffff;
-    --text-dark: #2f3542;
+    --text-dark: #ffffff;
     --transition: all 0.3s ease;
     
     --birthday-grad: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
