@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreetingApp | Create & Share Joy</title>
+    <meta name="description" content="Personalize and share beautiful greeting cards for any occasion.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">Greeting<span>App</span></div>
+            <nav>
+                <button id="toggleContrast" aria-label="Toggle High Contrast">🌓</button>
+            </nav>
+        </header>
+
+        <main>
+            <section class="editor-section">
+                <div class="card-preview-container">
+                    <div id="greetingCard" class="card birthday-theme">
+                        <div class="card-inner">
+                            <h2 id="previewCategory">HAPPY BIRTHDAY</h2>
+                            <p id="previewMessage">Your personalized message will appear here. Start typing to see the magic happen!</p>
+                            <h3 id="previewRecipient">To: Someone Special</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controls-container">
+                    <div class="control-group">
+                        <label for="category">Occasion</label>
+                        <select id="category">
+                            <option value="birthday">Birthday</option>
+                            <option value="thanks">Thank You</option>
+                            <option value="love">Love & Friendship</option>
+                            <option value="congrats">Congratulations</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="recipientName">Recipient Name</label>
+                        <input type="text" id="recipientName" placeholder="Enter name...">
+                    </div>
+
+                    <div class="control-group">
+                        <label for="cardMessage">Message</label>
+                        <textarea id="cardMessage" rows="4" placeholder="Write your heartfelt message..."></textarea>
+                    </div>
+
+                    <div class="control-group">
+                        <label>Typography</label>
+                        <div class="font-options">
+                            <button class="font-btn active" data-font="'Montserrat', sans-serif">Modern</button>
+                            <button class="font-btn" data-font="'Playfair Display', serif">Elegant</button>
+                            <button class="font-btn" data-font="'Dancing Script', cursive">Handwritten</button>
+                        </div>
+                    </div>
+
+                    <button id="shareBtn" class="primary-btn">Generate Share Link</button>
+                </div>
+            </section>
+        </main>
+
+        <div id="shareModal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Card Ready to Share!</h3>
+                <p>Copy the link below to send your card:</p>
+                <div class="link-box">
+                    <input type="text" id="shareLink" readonly value="https://greetingapp.web.app/card/unique-id-123">
+                    <button id="copyBtn">Copy</button>
+                </div>
+                <button class="close-modal">Close</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 GreetingApp. Built for Accessibility.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

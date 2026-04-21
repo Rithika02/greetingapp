@@ -1,0 +1,261 @@
+:root {
+    --primary-color: #ff4757;
+    --secondary-color: #2f3542;
+    --bg-light: #f1f2f6;
+    --card-bg: #ffffff;
+    --text-dark: #2f3542;
+    --transition: all 0.3s ease;
+    
+    --birthday-grad: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    --thanks-grad: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    --love-grad: linear-gradient(135deg, #ff0844 0%, #ffb199 100%);
+    --congrats-grad: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.high-contrast {
+    --primary-color: #000000;
+    --bg-light: #ffffff;
+    --text-dark: #000000;
+    --card-bg: #eeeeee;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 40px;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+#toggleContrast {
+    background: transparent;
+    border: 1px solid var(--text-dark);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Editor Section */
+.editor-section {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Card Preview */
+.card-preview-container {
+    display: flex;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.card {
+    width: 100%;
+    max-width: 500px;
+    height: 350px;
+    border-radius: 20px;
+    padding: 5px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    transition: var(--transition);
+}
+
+.card-inner {
+    background: var(--card-bg);
+    height: 100%;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px;
+}
+
+.birthday-theme { background: var(--birthday-grad); }
+.thanks-theme { background: var(--thanks-grad); }
+.love-theme { background: var(--love-grad); }
+.congrats-theme { background: var(--congrats-grad); }
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.card p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.8;
+}
+
+.card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* Controls */
+.controls-container {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.control-group {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--secondary-color);
+}
+
+select, input, textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.font-options {
+    display: flex;
+    gap: 10px;
+}
+
+.font-btn {
+    flex: 1;
+    padding: 8px;
+    background: transparent;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: var(--transition);
+}
+
+.font-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 15px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    margin-top: 10px;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 71, 87, 0.3);
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.hidden { display: none; }
+
+.modal-content {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+}
+
+.link-box {
+    display: flex;
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.link-box input {
+    flex: 1;
+    background: #f8f9fa;
+}
+
+#copyBtn {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.close-modal {
+    background: transparent;
+    border: none;
+    color: #888;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: 20px;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    opacity: 0.5;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 900px) {
+    .editor-section {
+        grid-template-columns: 1fr;
+    }
+}
