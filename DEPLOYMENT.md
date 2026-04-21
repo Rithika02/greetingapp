@@ -2,6 +2,15 @@
 
 This project is fully prepared for deployment to **Google Cloud Run** or **App Engine**.
 
+## Option 0: Cloud Shell (Easiest - No local installation needed)
+1. Go to [https://shell.cloud.google.com/](https://shell.cloud.google.com/).
+2. Once the terminal opens, run these commands:
+```bash
+git clone https://github.com/Rithika02/greetingapp.git
+cd greetingapp
+gcloud run deploy greeting-app --source . --region us-central1 --allow-unauthenticated
+```
+
 ## Option 1: Automated Deployment (Cloud Build)
 1. Go to the [Google Cloud Console](https://console.cloud.google.com/).
 2. Enable the **Cloud Build**, **Cloud Run**, and **Artifact Registry** APIs.
