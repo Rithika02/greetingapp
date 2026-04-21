@@ -54,6 +54,36 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleContrast.innerText = isDark ? '☀️' : '🌓';
     });
 
+    // Mood Quiz Logic
+    const moodQuizBtn = document.getElementById('moodQuizBtn');
+    const moodModal = document.getElementById('moodModal');
+    const closeMoodModal = document.getElementById('closeMoodModal');
+    const quizQuestion = document.getElementById('quizQuestion');
+    const quizOptions = document.getElementById('quizOptions');
+
+    const moodData = [
+        { label: "Energetic & Joyful", category: "birthday", msg: "Let's celebrate another amazing year! Hope your day is as bright as you are." },
+        { label: "Grateful & Appreciative", category: "thanks", msg: "I wanted to take a moment to say how much I appreciate everything you do." },
+        { label: "Soft & Romantic", category: "love", msg: "Just a small note to remind you how much you mean to me. You make life better." },
+        { label: "Proud & Excited", category: "congrats", msg: "Huge congratulations on your achievement! You've worked so hard for this." }
+    ];
+
+    moodQuizBtn.addEventListener('click', () => {
+        moodModal.classList.remove('hidden');
+        quizOptions.innerHTML = moodData.map(mood => `
+            <button class="quiz-btn" onclick="applyMood('${mood.category}', '${mood.msg}')">${mood.label}</button>
+        `).join('');
+    });
+
+    window.applyMood = (category, message) => {
+        categorySelect.value = category;
+        messageInput.value = message;
+        updatePreview();
+        moodModal.classList.add('hidden');
+    };
+
+    closeMoodModal.addEventListener('click', () => moodModal.classList.add('hidden'));
+
     // Share Logic
     shareBtn.addEventListener('click', () => {
         // In a real app, you'd send data to a DB and get a unique ID

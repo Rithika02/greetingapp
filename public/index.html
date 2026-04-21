@@ -62,9 +62,23 @@
                     </div>
 
                     <button id="shareBtn" class="primary-btn">Generate Share Link</button>
+                    <button id="moodQuizBtn" class="secondary-btn">Need Inspiration? Take the Mood Quiz</button>
                 </div>
             </section>
         </main>
+
+        <div id="moodModal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Mood Questionnaire</h3>
+                <div id="quizContainer">
+                    <p id="quizQuestion">How are you (or the recipient) feeling today?</p>
+                    <div class="quiz-options" id="quizOptions">
+                        <!-- Options injected by JS -->
+                    </div>
+                </div>
+                <button class="close-modal" id="closeMoodModal">Cancel</button>
+            </div>
+        </div>
 
         <div id="shareModal" class="modal hidden">
             <div class="modal-content">
