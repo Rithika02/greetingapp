@@ -41,9 +41,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // High Contrast Toggle
+    // Theme Toggle (Dark/Light Mode)
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        toggleContrast.innerText = '☀️';
+    }
+
     toggleContrast.addEventListener('click', () => {
-        document.body.classList.toggle('high-contrast');
+        const isDark = document.body.classList.toggle('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        toggleContrast.innerText = isDark ? '☀️' : '🌓';
     });
 
     // Share Logic
